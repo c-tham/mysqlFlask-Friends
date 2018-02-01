@@ -8,7 +8,7 @@ mysql = MySQLConnector(app,'friendsdb2')
 @app.route('/')
 def index():
     print 'index'
-    query = "SELECT * FROM friends"
+    query = "SELECT first_name, last_name, age, date_format(friend_since,'%M %e, %Y') as friend_since FROM friends"
     friends = mysql.query_db(query)
     return render_template('index.html', all_friends=friends)
 
