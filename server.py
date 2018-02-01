@@ -1,14 +1,14 @@
 from flask import Flask, request, redirect, render_template, session, flash
 from mysqlconnection import MySQLConnector
 app = Flask(__name__)
-mysql = MySQLConnector(app,'friendsdb2')
+mysql = MySQLConnector(app,'0friendsdb')
 
 ### Display all records
 
 @app.route('/')
 def index():
     print 'index'
-    query = "SELECT first_name, last_name, age, date_format(friend_since,'%M %e, %Y') as friend_since FROM friends"
+    query = "SELECT id, first_name, last_name, age, date_format(friend_since,'%M %e, %Y') as friend_since FROM friends"
     friends = mysql.query_db(query)
     return render_template('index.html', all_friends=friends)
 
@@ -17,7 +17,7 @@ def index():
 @app.route('/friends/<friend_id>')
 def show(friend_id):
     print 'show'
-    query = "SELECT * FROM friends WHERE id = :specific_id"
+    query = "SELECT id, first_name, last_name, age, date_format(friend_since,'%M %e, %Y') as friend_since FROM friends WHERE id = :specific_id"
     data = {
              'specific_id': friend_id
            }

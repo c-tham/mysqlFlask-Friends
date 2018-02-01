@@ -7,13 +7,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `friendsdb2` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `friendsdb2` ;
+CREATE SCHEMA IF NOT EXISTS `0friendsdb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `0friendsdb` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`friends`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `friendsdb2`.`friends` (
+CREATE TABLE IF NOT EXISTS `0friendsdb`.`friends` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
